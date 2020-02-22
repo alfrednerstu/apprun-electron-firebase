@@ -17,7 +17,7 @@ firebase.initializeApp(config);
 const db = firebase.firestore();
 const ref = db.collection(STORAGE_KEY).doc("state")
 
-app.on('save-state', state => ref.set(state));
+app.on('@save-state', state => ref.set(state));
 ref.onSnapshot(doc => {
-  if (doc.exists) app.run('new-state', doc.data())
+  if (doc.exists) app.run('@new-state', doc.data())
 });
