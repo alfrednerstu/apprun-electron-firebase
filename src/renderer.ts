@@ -28,17 +28,15 @@
 
 import './index.css';
 
-import app from 'apprun';
-
 import home from './components/home';
 import about from './components/about';
 import todo from './components/todo';
 
-import './store';
-
 new home().start('main');
 new about().mount('main');
-new todo().mount('main');
+new todo().mount('main', {history: true});
+
+import './store';
 
 /*
 import './components/header';
