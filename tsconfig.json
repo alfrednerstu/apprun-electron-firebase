@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "target": "es6",
+    "module": "commonjs",
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "jsx": "react",
+    "reactNamespace": "app",
+    "experimentalDecorators": true,
+    "lib": ["dom", "es2015", "es5"],
+    "baseUrl": ".",
+    "outDir": "dist",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "jsx": "react",
+    "reactNamespace": "app",
+    "importHelpers": true,
+    "paths": {
+      "*": ["node_modules/*"]
+    }
+  },
+  "include": [
+    "src/**/*"
+  ]
+}
