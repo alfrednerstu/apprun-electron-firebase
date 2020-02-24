@@ -23,9 +23,9 @@ export default class Todo extends Component {
   const countComplete = state.list.filter(todo => todo.done).length || 0;
 
   return <div>
-    <button onclick={() => this.run("history-prev")}> Back </button>
-    <button onclick={() => this.run("history-next")}> Forward </button>
-    <p><input onkeyup={e => this.run('keyup', e)} /></p>
+    <button $onclick="history-prev"> Back </button>
+    <button $onclick="history-next"> Forward </button>
+    <p><input $onkeyup="keyup" /></p>
     <ul> {
       state.list
       .map((todo, idx) => ({ ...todo, idx }))
@@ -33,14 +33,14 @@ export default class Todo extends Component {
       (state.filter === 'Active' && !todo.done) ||
       (state.filter === 'Complete' && todo.done))
       .map((todo) => <li>
-      <input type="checkbox" onclick={() => this.run('toggle-item', todo.idx)} checked={todo.done} />
-      <span>{todo.title} {' '} (<a href='#' onclick={() => this.run('delete-item', todo.idx)}>␡</a>)</span>
+      <input type="checkbox" $onclick={['toggle-item', todo.idx]} checked={todo.done} />
+      <span>{todo.title} {' '} (<a href='#' $onclick={['delete-item', todo.idx]}>␡</a>)</span>
       </li>)
     }</ul>
       <div>
-      <a href='#' onclick={e => this.run('filter-item', e)}>All</a> {` (${countAll}) | `}
-      <a href='#' onclick={e => this.run('filter-item', e)}>Active</a> {`(${countActive}) | `}
-      <a href='#' onclick={e => this.run('filter-item', e)}>Complete</a> {`(${countComplete})`}
+      <a href='#' $onclick='filter-item'>All</a> {` (${countAll}) | `}
+      <a href='#' $onclick='filter-item'>Active</a> {`(${countActive}) | `}
+      <a href='#' $onclick='filter-item'>Complete</a> {`(${countComplete})`}
       </div>
       <a href='#home'>Home</a> | <a href='#about'>About</a>
     </div>
